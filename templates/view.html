@@ -14,14 +14,16 @@
             <div class="col">
                 <a class='btn btn-dark my-3' href="{% url 'gallery' %}">Go Back</a>
 
-                <div style="height: 90vh">
-                    <img style="max-width: 100%; max-height: 100%;" src="https://t4.ftcdn.net/jpg/02/66/72/41/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, sunt.</p>
                 
+                <div style="height: 90vh">
+                    <img style="max-width: 100%; max-height: 100%;" src="{{photo.image.url}}" alt="">
+                    <p>{{photo.description}}</p>
                 </div>
+                
             </div>
         </div>
     </div>
+
 
    
     

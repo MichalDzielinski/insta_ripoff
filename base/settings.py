@@ -84,5 +84,15 @@ USE_TZ = True
 
 #region STATIC & MEDIA FILES
 STATIC_URL = 'static/'
+
+MEDIA_URL = '/images/'
+MEDIA_ROOT =  BASE_DIR /'static/images'
+
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+
+
 #endregion STATIC & MEDIA FILES
 

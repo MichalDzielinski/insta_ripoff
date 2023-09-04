@@ -24,10 +24,15 @@
                         Categories
                     </div>
                     <ul class="list-group list-group-flush">
+                        
+                        
                         <li class="list-group-item">All</li>
-                        <li class="list-group-item">Item-1</li>
-                        <li class="list-group-item">Item-2</li>
-                        <li class="list-group-item">Item-3</li>
+
+                        {% for c in category %}
+                        <li class="list-group-item">
+                            
+                            {{c.name}}</li>
+                        {% endfor %}
                         
                         
                         <a class='btn btn-outline-dark btn-block btn-sm m-1' href="{% url 'add' %}">Add photo</a>    
@@ -37,51 +42,21 @@
             </div>
             <div class="col-md-9">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card my-2">
-                            <img class='image-thumbnail' src="https://t4.ftcdn.net/jpg/02/66/72/41/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="">
-                            <div class="card-body">
-                                <small>Category: Pets</small>
+                    
+                    {% for f in photos %}
+                        <div class="col-md-4">
+                            <div class="card my-2">
+                                <img class='image-thumbnail' src='{{f.image.url}}' alt="">
+                                <div class="card-body">
+                                    <small>Category: {{f.category}}</small>
+                                </div>
+                                <a class='btn btn-outline-dark btn-sm m-1' href="{% url 'view' f.pk  %}">View</a>
                             </div>
-                            <a class='btn btn-outline-dark btn-sm m-1' href="{% url 'view' pk=5  %}">View</a>
                         </div>
-                    </div>
 
-                    <div class="col-md-4">
-                        <div class="card my-2">
-                            <img class='image-thumbnail' src="https://t4.ftcdn.net/jpg/02/66/72/41/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="">
-                            <div class="card-body">
-                                <small>Category: Pets</small>
-                            </div>
-                            <a class='btn btn-outline-dark btn-sm m-1' href="">View</a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card my-2">
-                            <img class='image-thumbnail' src="https://t4.ftcdn.net/jpg/02/66/72/41/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="">
-                            <div class="card-body">
-                                <small>Category: Pets</small>
-                            </div>
-                            <a class='btn btn-outline-dark btn-sm m-1' href="">View</a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card my-2">
-                            <img class='image-thumbnail' src="https://t4.ftcdn.net/jpg/02/66/72/41/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" alt="">
-                            <div class="card-body">
-                                <small>Category: Pets</small>
-                            </div>
-                            <a class='btn btn-outline-dark btn-sm m-1' href="">View</a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
+                    {% empty %}
+                        There are no photos here.
+                    {% endfor %}
             </div>
         </div>
     </div>
