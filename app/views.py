@@ -2,8 +2,13 @@ from django.shortcuts import render, redirect
 from .models import Category, Photo
 
 def gallery(request):
+    ctg =  request.GET.get('category')
+
+    if ctg == None:
+        photos = Photo.objects.all()
+    else:
+        photos = Photo.objects.filter(category__name=ctg)
     category = Category.objects.all()
-    photos = Photo.objects.all()
     context = {'photos': photos, 'category': category}
     return render(request, 'gallery.html', context)
 
